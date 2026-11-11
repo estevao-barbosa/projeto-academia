@@ -1,0 +1,78 @@
+03_TESTES_CONSTRAINTS - banco ACADEMIA
+Executado em: 30/10/2026
+Ambiente: Microsoft SQL Server 2025 (17.0.1145.4) - Developer Edition (64-bit)
+Cliente: SSMS 22
+Script: 03_TESTES_DE_CONSTRAINTS.sql (pré-requisito: 01_CRIACAO.sql e 02_DADOS.sql) 
+Resultado: 16 testes, todos OK
+
+-------------------------------------------------------------------------------------
+
+(0 linhas afetadas)
+OK: recusado pela constraint onde pagamento atrasado não pode ter multa igual a 0 
+
+(0 linhas afetadas)
+OK: recusado pela constraint onde pagamento feito em dia não pode ter multa maior que 0 
+
+(1 linha afetada)
+
+(0 linhas afetadas)
+OK: recusado pelo índice onde não permite que o mesmo aluno tenha mais de 1 trancamento em aberto
+
+(1 linha afetada)
+
+(1 linha afetada)
+OK: o banco aceitou o mesmo aluno ter um trancamento em aberto e outro encerrado
+
+(0 linhas afetadas)
+OK: recusado pela constraint onde a fim do trancamento nunca pode ser anterior a data do inicio do trancamento
+
+(1 linha afetada)
+
+(0 linhas afetadas)
+OK: recusado pelo índice que não permite mais de 1 contrato em aberto entre o mesmo aluno e personal
+
+(1 linha afetada)
+
+(1 linha afetada)
+OK: o banco aceitou um contrato encerrado e outro em aberto para o mesmo aluno e o mesmo personal
+
+(0 linhas afetadas)
+OK: o banco recusou um contrato com data final como ATIVO
+
+(0 linhas afetadas)
+OK: o banco recusou que uma manutenção realizada fosse inserida sem o relatório
+
+(0 linhas afetadas)
+OK: o banco recusou que uma manutenção realizada fosse inserida sem relatório (nulo)
+
+(0 linhas afetadas)
+OK: o banco recusou que uma manutenção em aberto fosse inserida com relatório preenchido
+
+(4 linhas afetadas)
+
+(0 linhas afetadas)
+OK: a trigger impediu que a capacidade máxima da aula fosse excedida (erro 50000): Capacidade máxima da aula coletiva excedida.
+
+(0 linhas afetadas)
+OK: banco recusou cadastro de aluno menor de 12 anos
+
+(0 linhas afetadas)
+OK: banco recusou cadastro de aluno que só faz 12 anos amanhã
+
+(1 linha afetada)
+OK: o banco aceitou cadastro de aluno que está fazendo 12 anos na data atual
+
+(1 linha afetada)
+
+(1 linha afetada)
+
+(1 linha afetada)
+idades retornadas pela view: hoje = 20 | amanhã = 19 | ontem = 20
+OK: aniversário hoje de 20 anos
+OK: aniversário amanhã de 20 anos, atualmente com 19 anos
+OK: aniversário ontem foi de 20 anos
+OK: 1 ano de diferença entre quem fez aniversário ontem e quem faz aniversário amanhã
+
+(1 linha afetada)
+
+(1 linha afetada)
